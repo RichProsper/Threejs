@@ -8,7 +8,7 @@ let scene, camera, renderer;
 let triangles = [];
 let normalVectors = [];
 let distances = [];
-let ADD = 0.1;
+let ADD = 0.02;
 
 function createTriangles() {
     let g1 = new THREE.Geometry();
@@ -123,11 +123,9 @@ function init() {
 
 function mainLoop() {
     for (let i = 0; i < triangles.length; i++) {
-        ADD += 0.001;
+        ADD += 0.0005;
         distances[i] += ADD;
-
         let nP = newPosition(i, normalVectors[i]);
-        let x = Math.abs(Math.round(normalVectors[i].x * 10));
         
         setTimeout(() => {
             triangles[i].position.x = nP.x;
@@ -136,10 +134,15 @@ function mainLoop() {
         }, 1500);
         
         setTimeout(() => {
-            if (x == 3) triangles[i].rotation.x += 0.1;
-            else triangles[i].rotation.z += 0.1;
+            triangles[i].rotation.x += 0.05;
         }, 1550);
     }
+
+    // triangles.forEach(t => {
+    //     t.rotation.x += 0.01;
+    //     t.rotation.z += 0.02;
+    //     t.rotation.y += 0.03;
+    // });
 
     renderer.render(scene, camera);
     requestAnimationFrame(mainLoop);
