@@ -3,7 +3,7 @@ These examples (with modification) come from the course '3D Programming with Jav
 
 To try these examples simply download the Threejs folder and open the index.html in your favorite IDE. Change the src of the script tag in the body to whichever example you wish.
 
-```
+```html
 <html>
     <head>
         <title>Normal Materials</title>
