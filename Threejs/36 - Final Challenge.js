@@ -44,7 +44,7 @@ function createGeometry() {
         scene.add(sphere);
     }
 
-    let numSpheres = Math.floor(RIR(1, 30));
+    let numSpheres = Math.floor(RIR(5, 30));
     for (let i = 0; i < numSpheres; i++) createSphere();
 }
 
